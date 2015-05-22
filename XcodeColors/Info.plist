@@ -12,8 +12,6 @@
 	<string>ru.DeepIT.${PRODUCT_NAME}</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
-<<<<<<< HEAD
-=======
 	<key>DVTPlugInCompatibilityUUIDs</key>
 	<array>
 		<string>63FC1C47-140D-42B0-BB4D-A10B2D225574</string>
@@ -32,7 +30,6 @@
 	</array>
 	<key>LSApplicationCategoryType</key>
 	<string></string>
->>>>>>> upstream/master
 	<key>CFBundleName</key>
 	<string>${PRODUCT_NAME}</string>
 	<key>CFBundlePackageType</key>
