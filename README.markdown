@@ -7,11 +7,11 @@ You're not limited to a restricted color palate.
 You can specify, in your source code, the exact RGB values you'd like to use.  
 You can specify foreground and/or background color(s).
 
-XcodeColors is a simple plugin for Xcode 3, 4, 5 & 6  
+XcodeColors is a simple plugin for Xcode 3, 4, 5, 6 & 7  
 
 ***
 
-### XcodeColors installation instructions for Xcode 4, 5 & 6:
+### XcodeColors installation instructions for Xcode 4, 5, 6 & 7:
 
 - Download or clone the repository.
 - Open the XcodeColors project with Xcode
@@ -26,6 +26,10 @@ XcodeColors is a simple plugin for Xcode 3, 4, 5 & 6
     This will test your installation, and you should see colors in your Xcode console.
 
 Did you **upgrade Xcode** and now XcodeColors is **"broken"**? Get the fix here: **[XcodeUpdates](https://github.com/robbiehanson/XcodeColors/wiki/XcodeUpdates)**.
+
+```
+$ ./update_compat.sh
+```
 
 ### XcodeColors installation instructions for Xcode 3:
 
@@ -50,7 +54,7 @@ http://deepitpro.com/en/articles/XcodeColors/info/index.shtml
 -  Testing to see if XcodeColors is installed and enabled:
 
     ```objective-c
-    char *xcode_colors = getenv(XCODE_COLORS);
+    char *xcode_colors = getenv("XcodeColors");
     if (xcode_colors && (strcmp(xcode_colors, "YES") == 0))
     {
         // XcodeColors is installed and enabled!
@@ -132,52 +136,52 @@ http://deepitpro.com/en/articles/XcodeColors/info/index.shtml
     struct ColorLog {
     	static let ESCAPE = "\u{001b}["
 
-	    static let RESET_FG = ESCAPE + "fg;" // Clear any foreground color
+	static let RESET_FG = ESCAPE + "fg;" // Clear any foreground color
     	static let RESET_BG = ESCAPE + "bg;" // Clear any background color
     	static let RESET = ESCAPE + ";"   // Clear any foreground or background color
 
-	    static func red<T>(object:T) {
-	    	println("\(ESCAPE)fg255,0,0;\(object)\(RESET)")
-	    }
+	static func red<T>(object: T) {
+	    print("\(ESCAPE)fg255,0,0;\(object)\(RESET)")
+	}
 
-	    static func green<T>(object:T) {
-		    println("\(ESCAPE)fg0,255,0;\(object)\(RESET)")
-	    }
+	static func green<T>(object: T) {
+	    print("\(ESCAPE)fg0,255,0;\(object)\(RESET)")
+	}
 
-	    static func blue<T>(object:T) {
-		    println("\(ESCAPE)fg0,0,255;\(object)\(RESET)")
-	    }
+	static func blue<T>(object: T) {
+	    print("\(ESCAPE)fg0,0,255;\(object)\(RESET)")
+	}
 
-	    static func yellow<T>(object:T) {
-		    println("\(ESCAPE)fg255,255,0;\(object)\(RESET)")
-	    }
+	static func yellow<T>(object: T) {
+	    print("\(ESCAPE)fg255,255,0;\(object)\(RESET)")
+	}
 
-	    static func purple<T>(object:T) {
-		    println("\(ESCAPE)fg255,0,255;\(object)\(RESET)")
-	    }
+	static func purple<T>(object: T) {
+	    print("\(ESCAPE)fg255,0,255;\(object)\(RESET)")
+	}
 
-	    static func cyan<T>(object:T) {
-		    println("\(ESCAPE)fg0,255,255;\(object)\(RESET)")
-	    }
+	static func cyan<T>(object: T) {
+	    print("\(ESCAPE)fg0,255,255;\(object)\(RESET)")
+	}
     }
     ```
 And then you can log within a Swift method like so:
 
     ```Swift
-    ColorLog.red( "This is a log." )
-    ColorLog.blue( "Number one hundred: \(100)." )
+    ColorLog.red("This is a log.")
+    ColorLog.blue("Number one hundred: \(100).")
     ```
 
 ***
 
 ### Option 2: CocoaLumberjack
 
-The [CocoaLumberjack](https://github.com/robbiehanson/CocoaLumberjack) framework natively supports XcodeColors!  
+The [CocoaLumberjack](https://github.com/CocoaLumberjack/CocoaLumberjack) framework natively supports XcodeColors!  
 Lumberjack is a fast & simple, yet powerful & flexible logging framework for Mac and iOS.
 
-From it's GitHub page:
+From its GitHub page:
 
-> [Lumberjack] is similar in concept to other popular logging frameworks such as log4j,
+> Lumberjack is similar in concept to other popular logging frameworks such as log4j,
 > yet is designed specifically for Objective-C, and takes advantage of features such as
 > multi-threading, grand central dispatch (if available), lockless atomic operations,
 > and the dynamic nature of the Objective-C runtime.
